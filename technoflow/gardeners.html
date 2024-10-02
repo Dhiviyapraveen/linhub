@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gardening Gurus</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .container .title {
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .container .title::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      height: 3px;
+      width: 60px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+    .gardener {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #f9f9f9;
+      text-align: left;
+      cursor: pointer; /* Add cursor pointer for clickable effect */
+    }
+
+    .gardener h3 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .gardener p {
+      font-size: 12px;
+      margin-bottom: 3px;
+      color: #333;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+    }
+
+    .rating span {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Gardening Gurus</div>
+    <div class="gardener" onclick="redirectToMessage('George Walker', '456-789-0123', '10', 'Coimbatore', '5')">
+      <h3>George Walker</h3>
+      <p>Phone: 456-789-0123</p>
+      <p>Experience: 10 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★★</span>
+      </div>
+    </div>
+    <div class="gardener" onclick="redirectToMessage('Grace Hall', '456-789-0124', '8', 'Coimbatore', '4')">
+      <h3>Grace Hall</h3>
+      <p>Phone: 456-789-0124</p>
+      <p>Experience: 8 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★☆</span>
+      </div>
+    </div>
+    <div class="gardener" onclick="redirectToMessage('Gordon Allen', '456-789-0125', '12', 'Coimbatore', '4')">
+      <h3>Gordon Allen</h3>
+      <p>Phone: 456-789-0125</p>
+      <p>Experience: 12 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★☆</span>
+      </div>
+    </div>
+    <div class="gardener" onclick="redirectToMessage('Gina Young', '456-789-0126', '6', 'Coimbatore', '3')">
+      <h3>Gina Young</h3>
+      <p>Phone: 456-789-0126</p>
+      <p>Experience: 6 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★☆☆</span>
+      </div>
+    </div>
+    <div class="gardener" onclick="redirectToMessage('Gary Hernandez', '456-789-0127', '6', 'Coimbatore', '3')">
+      <h3>Gary Hernandez</h3>
+      <p>Phone: 456-789-0127</p>
+      <p>Experience: 6 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★☆☆</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirectToMessage(name, phone, experience, location, rating) {
+      window.location.href = `message.html?name=${name}&phone=${phone}&experience=${experience}&location=${location}&rating=${rating}`;
+    }
+  </script>
+</body>
+
+</html>

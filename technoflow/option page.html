@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | LinHuB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 10px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+        
+        .container {
+            max-width: 500px;
+            max-height:1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .option-container {
+            text-align: center;
+        }
+        .option-container button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .option-container button:hover {
+            background-color: #71b7e6,#9b59b6;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register as</h2>
+        <div class="option-container">
+            <button onclick="registerAs('vendor')">Vendor</button>
+            <button onclick="registerAs('customer')">Customer</button>
+        </div>
+    </div>
+
+    <script>
+        function registerAs(type) {
+            if (type === 'vendor') {
+                window.location.href = 'file:///D:/example4.html';
+            } else if (type === 'customer') {
+                window.location.href = 'file:///D:/example3.html';
+            }
+        }
+    </script>
+</body>
+</html>

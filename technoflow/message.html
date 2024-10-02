@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LinHuB | Messaging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      background-color: #f0f2f5;
+      height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .sidebar {
+      width: 30%;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .sidebar input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .sidebar .vendor {
+      padding: 10px 0;
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .sidebar .vendor:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar .vendor:hover {
+      background-color: #f0f2f5;
+    }
+
+    .main {
+      width: 70%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message-header {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .message-content {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f0f2f5;
+      border-radius: 5px;
+    }
+
+    .message .vendor-name {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .message-input {
+      display: flex;
+    }
+
+    .message-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .message-input button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0073b1;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .message-input button:hover {
+      background-color: #005f8d;
+    }
+
+    .payment-request {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .payment-request button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #28a745;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .payment-request button:hover {
+      background-color: #218838;
+    }
+
+    .payment-input {
+      margin-left: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .response-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .response-buttons button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .response-buttons .accept {
+      background-color: #28a745;
+    }
+
+    .response-buttons .deny {
+      background-color: #dc3545;
+    }
+
+    .response-buttons .accept:hover {
+      background-color: #218838;
+    }
+
+    .response-buttons .deny:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <input type="text" id="searchVendor" placeholder="Search vendors..." oninput="filterVendors()">
+      <div class="vendor" onclick="openConversation('Plumbing Experts')">Plumbing Experts</div>
+      <div class="vendor" onclick="openConversation('Electricians Co.')">Electricians Co.</div>
+      <div class="vendor" onclick="openConversation('Woodwork Masters')">Woodwork Masters</div>
+      <div class="vendor" onclick="openConversation('Paint Pros')">Paint Pros</div>
+      <div class="vendor" onclick="openConversation('Home Cleaners')">Home Cleaners</div>
+      <div class="vendor" onclick="openConversation('Gardening Gurus')">Gardening Gurus</div>
+    </div>
+    <div class="main">
+      <div class="message-header" id="messageHeader">Select a vendor to start a conversation</div>
+      <div class="message-content" id="messageContent"></div>
+      <div class="payment-request">
+        <input type="number" id="paymentAmount" class="payment-input" placeholder="Amount">
+        <button onclick="requestPayment()">Request Payment</button>
+      </div>
+      <div class="message-input">
+        <input type="text" id="messageInput" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentVendor = '';
+
+    function filterVendors() {
+      const searchInput = document.getElementById('searchVendor').value.toLowerCase();
+      const vendors = document.querySelectorAll('.sidebar .vendor');
+
+      vendors.forEach(vendor => {
+        if (vendor.textContent.toLowerCase().includes(searchInput)) {
+          vendor.style.display = '';
+        } else {
+          vendor.style.display = 'none';
+        }
+      });
+    }
+
+    function openConversation(vendorName) {
+      currentVendor = vendorName;
+      document.getElementById('messageHeader').innerText = vendorName;
+      document.getElementById('messageContent').innerHTML = `<div class="message">
+        <div class="vendor-name">${vendorName}</div>
+        <div>Hi, how may I help you?</div>
+      </div>`;
+    }
+
+    function sendMessage() {
+      const messageInput = document.getElementById('messageInput');
+      const messageContent = document.getElementById('messageContent');
+
+      if (messageInput.value.trim() === '') return;
+
+      const newMessage = document.createElement('div');
+      newMessage.classList.add('message');
+      newMessage.innerHTML = `<div class="vendor-name">You</div><div>${messageInput.value}</div>`;
+
+      messageContent.appendChild(newMessage);
+      messageInput.value = '';
+      messageContent.scrollTop = messageContent.scrollHeight;
+    }
+
+    function requestPayment() {
+      const paymentAmount = document.getElementById('paymentAmount').value;
+
+      if (paymentAmount.trim() === '' || isNaN(paymentAmount) || paymentAmount <= 0) {
+        alert('Please enter a valid payment amount.');
+        return;
+      }
+
+      const messageContent = document.getElementById('messageContent');
+
+      const paymentRequest = document.createElement('div');
+      paymentRequest.classList.add('message');
+      paymentRequest.innerHTML = `<div class="vendor-name">You</div><div>Requested Payment: $${paymentAmount}</div>
+        <div class="response-buttons">
+          <button class="accept" onclick="respondPayment(true, ${paymentAmount})">Accept</button>
+          <button class="deny" onclick="respondPayment(false)">Deny</button>
+        </div>`;
+
+      messageContent.appendChild(paymentRequest);
+      document.getElementById('paymentAmount').value = '';
+      messageContent.scrollTop = messageContent.scrollHeight;
+    }
+
+    function respondPayment(accepted, amount) {
+      const messageContent = document.getElementById('messageContent');
+      const responseMessage = document.createElement('div');
+      responseMessage.classList.add('message');
+
+      if (accepted) {
+        responseMessage.innerHTML = `<div class="vendor-name">${currentVendor}</div><div>Payment of $${amount} accepted. Thank you!</div>`;
+      } else {
+        responseMessage.innerHTML = `<div class="vendor-name">${currentVendor}</div><div>Sorry! I deny your work.</div>`;
+      }
+
+      messageContent.appendChild(responseMessage);
+      messageContent.scrollTop = messageContent.scrollHeight;
+
+      // Remove the response buttons after responding
+      const responseButtons = document.querySelector('.response-buttons');
+      responseButtons.remove();
+    }
+  </script>
+</body>
+
+</html>

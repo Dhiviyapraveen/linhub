@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Plumbing Experts</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    .container .title {
+      font-size: 20px; /* Reduced font size */
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .container .title::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      height: 3px;
+      width: 60px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+    .plumber {
+      margin-bottom: 10px; /* Reduced margin */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+    .plumber h3 {
+      font-size: 16px; /* Reduced font size */
+      margin-bottom: 5px;
+    }
+    .plumber p {
+      font-size: 12px; /* Reduced font size */
+      margin-bottom: 3px; /* Reduced margin */
+      color: #333;
+    }
+    .rating {
+      display: flex;
+      align-items: center;
+    }
+    .rating span {
+      margin-right: 5px;
+      font-size: 12px; /* Reduced font size */
+    }
+    .plumber a {
+      text-decoration: none;
+      color: #333;
+    }
+    .plumber a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Plumbing Experts</div>
+    <div class="plumber">
+      <h3><a href="message.html?name=Jack&phone=1234567890">Jack</a></h3>
+      <p>Phone: (123) 456-7890</p>
+      <p>Experience: 10 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★☆</span>
+      </div>
+    </div>
+    <div class="plumber">
+      <h3><a href="message.html?name=Jane%20Smith&phone=9876543210">Jane Smith</a></h3>
+      <p>Phone: (987) 654-3210</p>
+      <p>Experience: 8 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★☆☆</span>
+      </div>
+    </div>
+    <div class="plumber">
+      <h3><a href="message.html?name=Jim%20Brown&phone=5551234567">Jim Brown</a></h3>
+      <p>Phone: (555) 123-4567</p>
+      <p>Experience: 15 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★★</span>
+      </div>
+    </div>
+    <div class="plumber">
+      <h3><a href="message.html?name=Jake%20White&phone=5557654321">Jake White</a></h3>
+      <p>Phone: (555) 765-4321</p>
+      <p>Experience: 12 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★☆</span>
+      </div>
+    </div>
+    <div class="plumber">
+      <h3><a href="message.html?name=Jill%20Green&phone=5557654321">Jill Green</a></h3>
+      <p>Phone: (555) 765-4321</p>
+      <p>Experience: 12 years</p>
+      <p>Location: Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★☆</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

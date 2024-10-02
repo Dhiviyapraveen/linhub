@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FastFix Mechanics</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .container .title {
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .container .title::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      height: 3px;
+      width: 60px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+    .mechanic {
+      margin-bottom: 10px; /* Reduced margin */
+      padding: 8px; /* Reduced padding */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+
+    .mechanic h3 {
+      font-size: 14px; /* Reduced font size */
+      margin-bottom: 5px;
+    }
+
+    .mechanic p {
+      font-size: 12px; /* Reduced font size */
+      margin-bottom: 3px; /* Reduced margin */
+      color: #333;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+    }
+
+    .rating span {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">FastFix Mechanics</div>
+    <div class="mechanic">
+      <h3>Michael Nelson</h3>
+      <p>Phone: 567-890-1234</p>
+      <p>Experience: 12 years</p>
+      <p>Location:Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★☆</span>
+      </div>
+    </div>
+    <div class="mechanic">
+      <h3>Megan Carter</h3>
+      <p>Phone: 567-890-1235</p>
+      <p>Experience: 10 years</p>
+      <p>Location:Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★☆</span>
+      </div>
+    </div>
+    <div class="mechanic">
+      <h3>Martin Mitchell</h3>
+      <p>Phone: 567-890-1236</p>
+      <p>Experience: 14 years</p>
+      <p>Location:Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★★</span>
+      </div>
+    </div>
+    <div class="mechanic">
+      <h3>Mia Perez</h3>
+      <p>Phone: 567-890-1237</p>
+      <p>Experience: 7 years</p>
+      <p>Location:Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★★</span>
+      </div>
+    </div>
+    <div class="mechanic">
+      <h3>Mark Roberts</h3>
+      <p>Phone: 567-890-1238</p>
+      <p>Experience: 7 years</p>
+      <p>Location:Coimbatore</p>
+      <div class="rating">
+        <span>Rating:</span>
+        <span>★★★★★</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

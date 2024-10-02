@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendor Registration | LinHuB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+        .container .title {
+            font-size: 20px;
+            font-weight: 500;
+            position: relative;
+        }
+        .container .title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 25px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+        .content form .user-details {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 0;
+        }
+        form .user-details .input-box {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        form .input-box span.details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .user-details .input-box input,
+        .user-details .input-box select {
+            height: 40px;
+            width: 100%;
+            outline: none;
+            font-size: 14px;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid #ccc;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid,
+        .user-details .input-box select:focus {
+            border-color: #9b59b6;
+        }
+        .content form .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .content form .button {
+            height: 40px;
+            width: 45%;
+        }
+        .content form .button input {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+        .content form .button input:hover {
+            background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+        }
+        @media(max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+            form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('vendorRegistrationForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                window.location.href = 'file:///D:/technoflow/technoflow/page%2012.html'; // Redirect to the home page
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="title">Vendor Registration</div>
+    <div class="content">
+        <form id="vendorRegistrationForm">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Business Plan</span>
+                    <select name="business-plan" required>
+                        <option value="" disabled selected>Select your business plan</option>
+                        <option value="carpentry">Carpentry</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="gardening">Gardening</option>
+                        <option value="mechanic">Mechanic</option>
+                        <option value="painting">Painting</option>
+                        <option value="cleaning">Cleaning</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Working Address</span>
+                    <input type="text" placeholder="Enter your working address" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Pincode</span>
+                    <input type="text" placeholder="Enter your pincode" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Aadhar Number</span>
+                    <input type="text" placeholder="Enter your Aadhar number" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    <input type="text" placeholder="Enter your phone number" required>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
